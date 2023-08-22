@@ -4,10 +4,8 @@ import 'package:diff_image/diff_image.dart';
 import 'package:image/image.dart';
 
 void main() async {
-  final FIRST_IMAGE_URL =
-      'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png';
-  final SECOND_IMAGE_URL =
-      'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-node.png';
+  final firstImageUrl = Uri.parse('https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png');
+  final secondImageUrl = Uri.parse('https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-node.png');
 
   // You need a try/catch block to handle the exceptions (http request, different size, etc)
   try {
@@ -15,23 +13,23 @@ void main() async {
     // of the difference. Also you can decide the format of the output: As
     // percentage or between 0 and 1.
     var diff = await DiffImage.compareFromUrl(
-      FIRST_IMAGE_URL,
-      SECOND_IMAGE_URL,
+      firstImageUrl,
+      secondImageUrl,
       ignoreAlpha: false,
       asPercentage: false,
     );
     print('The difference between images is: ${diff.diffValue}');
 
     diff = await DiffImage.compareFromUrl(
-      FIRST_IMAGE_URL,
-      SECOND_IMAGE_URL,
+      firstImageUrl,
+      secondImageUrl,
       ignoreAlpha: false,
     );
     print('The difference between images is: ${diff.diffValue} percent');
 
     diff = await DiffImage.compareFromUrl(
-      FIRST_IMAGE_URL,
-      SECOND_IMAGE_URL,
+      firstImageUrl,
+      secondImageUrl,
     );
     print('The difference between images is: ${diff.diffValue} percent');
 
@@ -48,8 +46,8 @@ void main() async {
       ).readAsBytesSync(),
     );
     diff = DiffImage.compareFromMemory(
-      firstImageFromMemory,
-      secondImageFromMemory,
+      firstImageFromMemory!,
+      secondImageFromMemory!,
     );
     print('The difference between images is: ${diff.diffValue} percent');
 

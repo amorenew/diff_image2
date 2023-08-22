@@ -1,23 +1,20 @@
 @TestOn('vm')
 
-import 'package:test/test.dart';
-import 'package:image/image.dart';
-
 import 'package:diff_image/src/helper_functions.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart';
 
 void main() {
   group('Test for helper functions', () {
-    String flutterLogoUrl, badUrl, anotherLogoUrl;
+    late Uri flutterLogoUrl, badUrl, anotherLogoUrl;
 
     setUp(() {
       // A real image
-      flutterLogoUrl =
-          'https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png';
+      flutterLogoUrl = Uri.parse('https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png');
       // Not an image
-      badUrl = 'https://seeklogo.com';
+      badUrl = Uri.parse('https://seeklogo.com');
       // Image with different size with respect to flutterLogoUrl
-      anotherLogoUrl =
-          'https://www.extremetech.com/wp-content/uploads/2011/10/dart-logo-banner1-348x196.jpg';
+      anotherLogoUrl = Uri.parse('https://2.bp.blogspot.com/-L6CW4iuyCLE/TpQy4VCHJJI/AAAAAAAAAQs/Z40P6pqkfqA/s1600/dart-logo-banner1-348x196.jpg');
     });
 
     test('Get image from url', () async {

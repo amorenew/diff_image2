@@ -1,26 +1,24 @@
 import 'package:image/image.dart';
-import 'package:meta/meta.dart';
 import 'helper_functions.dart';
 import 'models/diff_img_result.dart';
 
 class DiffImage {
   /// Returns a single number representing the difference between two RGB pixels
   static num _diffBetweenPixels({
-    @required int firstPixel,
-    @required bool ignoreAlpha,
-    @required int secondPixel,
+    required Pixel firstPixel,
+    required bool ignoreAlpha,
+    required Pixel secondPixel,
   }) {
-    var fRed = getRed(firstPixel);
-    var fGreen = getGreen(firstPixel);
-    var fBlue = getBlue(firstPixel);
-    var fAlpha = getAlpha(firstPixel);
-    var sRed = getRed(secondPixel);
-    var sGreen = getGreen(secondPixel);
-    var sBlue = getBlue(secondPixel);
-    var sAlpha = getAlpha(secondPixel);
+    var fRed = firstPixel.r;
+    var fGreen = firstPixel.g;
+    var fBlue = firstPixel.b;
+    var fAlpha = firstPixel.a;
+    var sRed = secondPixel.r;
+    var sGreen = secondPixel.g;
+    var sBlue = secondPixel.b;
+    var sAlpha = secondPixel.a;
 
-    num diff =
-        (fRed - sRed).abs() + (fGreen - sGreen).abs() + (fBlue - sBlue).abs();
+    var diff = (fRed - sRed).abs() + (fGreen - sGreen).abs() + (fBlue - sBlue).abs();
 
     if (ignoreAlpha) {
       diff = (diff / 255) / 3;
@@ -90,10 +88,11 @@ class DiffImage {
     var width = firstImg.width;
     var height = firstImg.height;
     // Create an image to show the differences
-    var diffImg = Image(width, height);
+    var diffImg = Image(width: width, height: height);
 
     for (var i = 0; i < width; i++) {
-      num diffAtPixel, firstPixel, secondPixel;
+      Pixel firstPixel, secondPixel;
+      num diffAtPixel;
 
       for (var j = 0; j < height; j++) {
         firstPixel = firstImg.getPixel(i, j);
@@ -132,7 +131,7 @@ class DiffImage {
   /// Function to store an [Image] object as PNG in local storage.
   /// Not supported on web.
   static Future<void> saveDiffImg({
-    @required Image diffImg,
+    required Image diffImg,
   }) async {
     // TODO Define if can download image file or just show
     throw UnsupportedError(
