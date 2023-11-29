@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Upgrade to Flutter 3.16
+  
 ## 1.0.1
 
 - Removed `image` package export.

@@ -4,8 +4,10 @@ import 'package:diff_image/diff_image.dart';
 import 'package:image/image.dart';
 
 void main() async {
-  final firstImageUrl = Uri.parse('https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png');
-  final secondImageUrl = Uri.parse('https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-node.png');
+  final firstImageUrl = Uri.parse(
+      'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png');
+  final secondImageUrl = Uri.parse(
+      'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-node.png');
 
   // You need a try/catch block to handle the exceptions (http request, different size, etc)
   try {
@@ -50,7 +52,7 @@ void main() async {
       secondImageFromMemory!,
     );
     print('The difference between images is: ${diff.diffValue} percent');
-
+    print(diff.diffImg);
     // Uncomment and run this ONLY if you are not on Dart Web (saveDiffImg
     // is not supported on Dart Web yet). [saveDiffImg] allows you to save
     // a png showing the differences between the two images.
