@@ -12,8 +12,8 @@ A simple usage example:
 import 'package:diff_image2/diff_image.dart';
 import 'package:image/image.dart';
 
-final FIRST_IMAGE = 'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png';
-final SECOND_IMAGE = 'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-node.png';
+final FIRST_IMAGE = 'https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png';
+final SECOND_IMAGE = 'https://seeklogo.com/images/A/android-western-logo-8F117A7F00-seeklogo.com.png';
 
 void foo() async {
   try {
