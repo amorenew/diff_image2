@@ -1,4 +1,4 @@
-name: diff_image
+name: diff_image2
 description: A package to get the difference between two images. Currently supports fetching images from web and from local memory.
 version: 1.0.2
 homepage: https://github.com/amorenew/diff_image2
