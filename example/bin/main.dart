@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:diff_image2/diff_image.dart';
+import 'package:diff_image2/diff_image2.dart';
 import 'package:image/image.dart';
 
 void main() async {

@@ -1,6 +1,6 @@
 @TestOn('browser')
 
-import 'package:diff_image2/diff_image.dart';
+import 'package:diff_image2/diff_image2.dart';
 import 'package:diff_image2/src/helper_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
