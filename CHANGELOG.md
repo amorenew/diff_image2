@@ -1,3 +1,6 @@
+## 1.0.4
+- Update documentation
+  
 ## 1.0.3
 - Update the sample image
 

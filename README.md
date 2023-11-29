@@ -91,7 +91,7 @@ Both methods return an `DiffImgResult`, a model which contains two elements: An 
 
 **Without Alpha :** 34.83905183744361 %
 ### Difference Image
-![DiffImg](https://raw.githubusercontent.com/amorenew/diff_image2/main/DiffImage.png "DiffImg")
+![DiffImg](https://raw.githubusercontent.com/amorenew/diff_image2/main/DiffIamge.png "DiffImg")
 
 
 ## Suggestions and bugs
