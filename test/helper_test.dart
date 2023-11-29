@@ -1,6 +1,6 @@
 @TestOn('vm')
 
-import 'package:diff_image/src/helper_functions.dart';
+import 'package:diff_image2/src/helper_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart';
 

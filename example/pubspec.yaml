@@ -7,7 +7,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  diff_image:
+  diff_image2:
     path: ../
   image: ^4.1.3
 

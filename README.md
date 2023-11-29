@@ -1,15 +1,15 @@
 # diff_image
 
-A Dart [Package](https://pub.dev/packages/diff_image) to get the % difference between two images of the same width and height.
+A Dart [Package](https://pub.dev/packages/diff_image2) to get the % difference between two images of the same width and height.
 
-diff_image is a Dart version of [this](https://github.com/nicolashahn/diffimg) with changes on visualization and , you guessed it, the language.
+diff_image2 is a Dart version of [this](https://github.com/amorenew/diff_image2) with changes on visualization and , you guessed it, the language.
 
 ## Example
 
 A simple usage example:
 
 ```dart
-import 'package:diff_image/diff_image.dart';
+import 'package:diff_image2/diff_image.dart';
 import 'package:image/image.dart';
 
 final FIRST_IMAGE = 'https://raw.githubusercontent.com/nicolashahn/diffimg/master/images/mario-circle-cs.png';
@@ -50,7 +50,7 @@ main() {
 }
 ```
 
-A more detailed example can be found [here](https://github.com/limonadev/diff_image/tree/main/example)
+A more detailed example can be found [here](https://github.com/amorenew/diff_image2/tree/main/example)
 
 ## Features
 
@@ -91,11 +91,11 @@ Both methods return an `DiffImgResult`, a model which contains two elements: An 
 
 **Without Alpha :** 34.83905183744361 %
 ### Difference Image
-![DiffImg](https://raw.githubusercontent.com/limonadev/diff_image/main/DiffImg.png "DiffImg")
+![DiffImg](https://raw.githubusercontent.com/amorenew/diff_image2/main/DiffImg.png "DiffImg")
 
 
 ## Suggestions and bugs
 
 Please file feature requests, suggestions and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/limonadev/diff_image/issues
+[tracker]: https://github.com/amorenew/diff_image2/issues
