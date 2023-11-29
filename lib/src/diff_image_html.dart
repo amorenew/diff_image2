@@ -18,7 +18,8 @@ class DiffImage {
     var sBlue = secondPixel.b;
     var sAlpha = secondPixel.a;
 
-    var diff = (fRed - sRed).abs() + (fGreen - sGreen).abs() + (fBlue - sBlue).abs();
+    var diff =
+        (fRed - sRed).abs() + (fGreen - sGreen).abs() + (fBlue - sBlue).abs();
 
     if (ignoreAlpha) {
       diff = (diff / 255) / 3;

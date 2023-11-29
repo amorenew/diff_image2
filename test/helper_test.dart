@@ -10,11 +10,13 @@ void main() {
 
     setUp(() {
       // A real image
-      flutterLogoUrl = Uri.parse('https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png');
+      flutterLogoUrl = Uri.parse(
+          'https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png');
       // Not an image
       badUrl = Uri.parse('https://seeklogo.com');
       // Image with different size with respect to flutterLogoUrl
-      anotherLogoUrl = Uri.parse('https://2.bp.blogspot.com/-L6CW4iuyCLE/TpQy4VCHJJI/AAAAAAAAAQs/Z40P6pqkfqA/s1600/dart-logo-banner1-348x196.jpg');
+      anotherLogoUrl = Uri.parse(
+          'https://2.bp.blogspot.com/-L6CW4iuyCLE/TpQy4VCHJJI/AAAAAAAAAQs/Z40P6pqkfqA/s1600/dart-logo-banner1-348x196.jpg');
     });
 
     test('Get image from url', () async {

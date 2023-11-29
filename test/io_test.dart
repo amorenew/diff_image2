@@ -10,11 +10,14 @@ void main() {
 
     setUp(() {
       // A real image
-      flutterLogoUrl = Uri.parse('https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png');
+      flutterLogoUrl = Uri.parse(
+          'https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png');
       // Image with different size with respect to flutterLogoUrl
-      dartLogoUrl = Uri.parse('https://2.bp.blogspot.com/-L6CW4iuyCLE/TpQy4VCHJJI/AAAAAAAAAQs/Z40P6pqkfqA/s1600/dart-logo-banner1-348x196.jpg');
+      dartLogoUrl = Uri.parse(
+          'https://2.bp.blogspot.com/-L6CW4iuyCLE/TpQy4VCHJJI/AAAAAAAAAQs/Z40P6pqkfqA/s1600/dart-logo-banner1-348x196.jpg');
       // Image with the same size as flutterLogoUrl
-      androidLogoUrl = Uri.parse('https://seeklogo.com/images/A/android-western-logo-8F117A7F00-seeklogo.com.png');
+      androidLogoUrl = Uri.parse(
+          'https://seeklogo.com/images/A/android-western-logo-8F117A7F00-seeklogo.com.png');
     });
 
     test('Compare the same image', () async {
