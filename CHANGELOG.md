@@ -1,3 +1,6 @@
+## 1.0.3
+- Update the sample image
+
 ## 1.0.2
 
 - Upgrade to Flutter 3.16
