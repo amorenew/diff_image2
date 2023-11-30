@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:image/image.dart';
 import 'helper_functions.dart';
 import 'models/diff_img_result.dart';
@@ -129,10 +131,32 @@ class DiffImage {
     );
   }
 
+  /// Computes the diffence between two image files with the same width and heigth
+  /// by receiving two [File] objects (one for each image). Returns a
+  /// [DiffImgResult] containing two items:
+  ///
+  /// * An image showing the different pixels from both images.
+  /// * The average difference between each pixel.
+  ///
+  /// Can throw an [Exception].
+  static DiffImgResult compareFromFile(
+    File firstImg,
+    File secondImg, {
+    bool asPercentage = true,
+    bool ignoreAlpha = true,
+  }) {
+    // TODO Define if can compare image files
+    throw UnsupportedError(
+      "Currently we can't compare image files on web.",
+    );
+  }
+
   /// Function to store an [Image] object as PNG in local storage.
   /// Not supported on web.
-  static Future<void> saveDiffImg({
-    required Image diffImg,
+  static Future<void> saveImage({
+    required Image image,
+    required String name,
+    String directory = '',
   }) async {
     // TODO Define if can download image file or just show
     throw UnsupportedError(

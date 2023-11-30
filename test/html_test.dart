@@ -85,8 +85,10 @@ void main() {
 
       expect(
         () async {
-          await DiffImage.saveDiffImg(
-            diffImg: diff.diffImg,
+          await DiffImage.saveImage(
+            image: diff.diffImg,
+            name: 'imageName',
+            directory: '',
           );
         },
         throwsException,

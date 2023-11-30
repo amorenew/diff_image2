@@ -1,3 +1,7 @@
+## 1.1.0
+- Add `compareFromFile` function to compare image files
+- Update `saveImage` function to take name and directory and save image result
+
 ## 1.0.4
 - Update documentation
   

@@ -73,13 +73,29 @@ A more detailed example can be found [here](https://github.com/amorenew/diff_ima
     bool ignoreAlpha = true,
   }) {...}
 ```
+4. And the `compareFromFile` definition is:
+```dart
+  static Future<DiffImgResult> compareFromFile(
+    File firstImg,
+    File secondImg, {
+    bool asPercentage = true,
+    bool ignoreAlpha = true,
+  }) {...}
+```
 where:
 + `ignoreAlpha` allows to decide whether to take alpha from RGBA into account for the calculation
 + `asPercentage` set the format of the output (as percentage or between 0-1)
 
 Both methods return an `DiffImgResult`, a model which contains two elements: An image showing the differences between both images and the numeric value representing the difference (as percentage or not).
 
-4. A function called `saveDiffImg` which saves a png showing the differences between `firstImg` and `secondImg` (currently not available on Dart Web).
+5. A function called `saveImage` which saves a png showing the differences between `firstImage` and `secondImage` (currently not available on Dart Web).
+```dart
+  static Future<File> saveImage({
+    required Image image,
+    required String name,
+    String directory = '',
+  }) {...}
+```
 
 ## Sample Results
 ### First Image

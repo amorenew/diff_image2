@@ -1,4 +1,4 @@
-import 'dart:io' as io;
+import 'dart:io';
 
 import 'package:image/image.dart';
 import 'helper_functions.dart';
@@ -131,13 +131,62 @@ class DiffImage {
     );
   }
 
+  /// Computes the diffence between two image files with the same width and heigth
+  /// by receiving two [File] objects (one for each image). Returns a
+  /// [DiffImgResult] containing two items:
+  ///
+  /// * An image showing the different pixels from both images.
+  /// * The average difference between each pixel.
+  ///
+  /// Can throw an [Exception].
+  static Future<DiffImgResult> compareFromFile(
+    File firstImg,
+    File secondImg, {
+    bool asPercentage = true,
+    bool ignoreAlpha = true,
+  }) async {
+    final isFirstImageExist = await firstImg.existsSync();
+    final isSecondImageExist = await secondImg.existsSync();
+    if (!isFirstImageExist) {
+      throw FileSystemException(
+        'diffImage2: compareFromFile first image not found',
+        firstImg.path,
+      );
+    } else if (!isSecondImageExist) {
+      throw FileSystemException(
+        'diffImage2: compareFromFile second image not found',
+        firstImg.path,
+      );
+    }
+
+    final firstImage = await _convertFileToImage(firstImg);
+    final secondImage = await _convertFileToImage(firstImg);
+
+    return compareFromMemory(
+      firstImage,
+      secondImage,
+      asPercentage: asPercentage,
+      ignoreAlpha: ignoreAlpha,
+    );
+  }
+
+  static Future<Image> _convertFileToImage(File picture) async {
+    final imageBytes = await picture.readAsBytes();
+    return decodePng(imageBytes)!;
+  }
+
   /// Function to store an [Image] object as PNG in local storage.
   /// Not supported on web.
-  static Future<void> saveDiffImg({
-    required Image diffImg,
+  static Future<File> saveImage({
+    required Image image,
+    required String name,
+    String directory = '',
   }) async {
-    await io.File('DiffImg.png').writeAsBytes(
-      encodePng(diffImg),
-    );
+    if (directory.isNotEmpty && !directory.endsWith('/')) {
+      directory = '$directory/';
+    }
+    final resultFile = await File('$directory$name').create(recursive: true);
+
+    return await resultFile.writeAsBytes(encodePng(image), flush: true);
   }
 }
