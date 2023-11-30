@@ -145,8 +145,8 @@ class DiffImage {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) async {
-    final isFirstImageExist = await firstImageFile.existsSync();
-    final isSecondImageExist = await secondImageFile.existsSync();
+    final isFirstImageExist = firstImageFile.existsSync();
+    final isSecondImageExist = secondImageFile.existsSync();
     if (!isFirstImageExist) {
       throw FileSystemException(
         'diffImage2: compareFromFile first image not found',

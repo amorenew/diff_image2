@@ -1,3 +1,6 @@
+## 1.2.1
+- Remove unnecessary await for file isExist
+  
 ## 1.2.0
 - Fix `compareFromFile` not working
 - Rename any `Img` to `Image` for parameters
