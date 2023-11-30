@@ -42,21 +42,21 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static Future<DiffImgResult> compareFromUrl(
-    dynamic firstImgSrc,
-    dynamic secondImgSrc, {
+    dynamic firstImageSrc,
+    dynamic secondImageSrc, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) async {
-    var firstImg = await getImg(
-      imgSrc: firstImgSrc,
+    var firstImage = await getImg(
+      imgSrc: firstImageSrc,
     );
-    var secondImg = await getImg(
-      imgSrc: secondImgSrc,
+    var secondImage = await getImg(
+      imgSrc: secondImageSrc,
     );
 
     return compareFromMemory(
-      firstImg,
-      secondImg,
+      firstImage,
+      secondImage,
       asPercentage: asPercentage,
       ignoreAlpha: ignoreAlpha,
     );
@@ -71,16 +71,16 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static DiffImgResult compareFromMemory(
-    Image firstImg,
-    Image secondImg, {
+    Image firstImage,
+    Image secondImage, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) {
     var diff = 0.0;
 
     var imagesEqualSize = haveSameSize(
-      firstImg: firstImg,
-      secondImg: secondImg,
+      firstImage: firstImage,
+      secondImage: secondImage,
     );
     if (!imagesEqualSize) {
       throw UnsupportedError(
@@ -88,8 +88,8 @@ class DiffImage {
       );
     }
 
-    var width = firstImg.width;
-    var height = firstImg.height;
+    var width = firstImage.width;
+    var height = firstImage.height;
     // Create an image to show the differences
     var diffImg = Image(width: width, height: height);
 
@@ -98,8 +98,8 @@ class DiffImage {
       Pixel firstPixel, secondPixel;
 
       for (var j = 0; j < height; j++) {
-        firstPixel = firstImg.getPixel(i, j);
-        secondPixel = secondImg.getPixel(i, j);
+        firstPixel = firstImage.getPixel(i, j);
+        secondPixel = secondImage.getPixel(i, j);
 
         diffAtPixel = _diffBetweenPixels(
           firstPixel: firstPixel,
@@ -126,7 +126,7 @@ class DiffImage {
     if (asPercentage) diff *= 100;
 
     return DiffImgResult(
-      diffImg: diffImg,
+      diffImage: diffImg,
       diffValue: diff,
     );
   }
@@ -140,27 +140,27 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static Future<DiffImgResult> compareFromFile(
-    File firstImg,
-    File secondImg, {
+    File firstImageFile,
+    File secondImageFile, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) async {
-    final isFirstImageExist = await firstImg.existsSync();
-    final isSecondImageExist = await secondImg.existsSync();
+    final isFirstImageExist = await firstImageFile.existsSync();
+    final isSecondImageExist = await secondImageFile.existsSync();
     if (!isFirstImageExist) {
       throw FileSystemException(
         'diffImage2: compareFromFile first image not found',
-        firstImg.path,
+        firstImageFile.path,
       );
     } else if (!isSecondImageExist) {
       throw FileSystemException(
         'diffImage2: compareFromFile second image not found',
-        firstImg.path,
+        secondImageFile.path,
       );
     }
 
-    final firstImage = await _convertFileToImage(firstImg);
-    final secondImage = await _convertFileToImage(firstImg);
+    final firstImage = await _convertFileToImage(firstImageFile);
+    final secondImage = await _convertFileToImage(secondImageFile);
 
     return compareFromMemory(
       firstImage,

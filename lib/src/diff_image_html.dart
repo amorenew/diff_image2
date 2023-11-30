@@ -42,21 +42,21 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static Future<DiffImgResult> compareFromUrl(
-    dynamic firstImgSrc,
-    dynamic secondImgSrc, {
+    dynamic firstImageSrc,
+    dynamic secondImageSrc, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) async {
-    var firstImg = await getImg(
-      imgSrc: firstImgSrc,
+    var firstImage = await getImg(
+      imgSrc: firstImageSrc,
     );
-    var secondImg = await getImg(
-      imgSrc: secondImgSrc,
+    var secondImage = await getImg(
+      imgSrc: secondImageSrc,
     );
 
     return compareFromMemory(
-      firstImg,
-      secondImg,
+      firstImage,
+      secondImage,
       asPercentage: asPercentage,
       ignoreAlpha: ignoreAlpha,
     );
@@ -71,16 +71,16 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static DiffImgResult compareFromMemory(
-    Image firstImg,
-    Image secondImg, {
+    Image firstImage,
+    Image secondImage, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) {
     var diff = 0.0;
 
     var imagesEqualSize = haveSameSize(
-      firstImg: firstImg,
-      secondImg: secondImg,
+      firstImage: firstImage,
+      secondImage: secondImage,
     );
     if (!imagesEqualSize) {
       throw UnsupportedError(
@@ -88,8 +88,8 @@ class DiffImage {
       );
     }
 
-    var width = firstImg.width;
-    var height = firstImg.height;
+    var width = firstImage.width;
+    var height = firstImage.height;
     // Create an image to show the differences
     var diffImg = Image(width: width, height: height);
 
@@ -98,8 +98,8 @@ class DiffImage {
       num diffAtPixel;
 
       for (var j = 0; j < height; j++) {
-        firstPixel = firstImg.getPixel(i, j);
-        secondPixel = secondImg.getPixel(i, j);
+        firstPixel = firstImage.getPixel(i, j);
+        secondPixel = secondImage.getPixel(i, j);
 
         diffAtPixel = _diffBetweenPixels(
           firstPixel: firstPixel,
@@ -126,7 +126,7 @@ class DiffImage {
     if (asPercentage) diff *= 100;
 
     return DiffImgResult(
-      diffImg: diffImg,
+      diffImage: diffImg,
       diffValue: diff,
     );
   }
@@ -140,8 +140,8 @@ class DiffImage {
   ///
   /// Can throw an [Exception].
   static DiffImgResult compareFromFile(
-    File firstImg,
-    File secondImg, {
+    File firstImage,
+    File secondImage, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) {

@@ -58,8 +58,8 @@ A more detailed example can be found [here](https://github.com/amorenew/diff_ima
 2. The `compareFromUrl` definition is:
 ```dart
   static Future<DiffImgResult> compareFromUrl(
-    dynamic firstImgSrc,
-    dynamic secondImgSrc, {
+    dynamic firstImageSrc,
+    dynamic secondImageSrc, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) async{...}
@@ -67,8 +67,8 @@ A more detailed example can be found [here](https://github.com/amorenew/diff_ima
 3. And the `compareFromMemory` definition is:
 ```dart
   static DiffImgResult compareFromMemory(
-    Image firstImg,
-    Image secondImg, {
+    Image firstImage,
+    Image secondImage, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) {...}
@@ -76,8 +76,8 @@ A more detailed example can be found [here](https://github.com/amorenew/diff_ima
 4. And the `compareFromFile` definition is:
 ```dart
   static Future<DiffImgResult> compareFromFile(
-    File firstImg,
-    File secondImg, {
+    File firstImage,
+    File secondImage, {
     bool asPercentage = true,
     bool ignoreAlpha = true,
   }) {...}

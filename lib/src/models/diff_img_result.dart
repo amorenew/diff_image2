@@ -4,10 +4,10 @@ import 'package:image/image.dart';
 /// query.
 class DiffImgResult {
   DiffImgResult({
-    required this.diffImg,
+    required this.diffImage,
     required this.diffValue,
   });
 
-  final Image diffImg;
+  final Image diffImage;
   final num diffValue;
 }

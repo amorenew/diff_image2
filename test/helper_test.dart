@@ -39,8 +39,8 @@ void main() {
         imgSrc: flutterLogoUrl,
       );
       var areEquals = haveSameSize(
-        firstImg: img1,
-        secondImg: img1,
+        firstImage: img1,
+        secondImage: img1,
       );
       expect(areEquals, isTrue);
 
@@ -48,8 +48,8 @@ void main() {
         imgSrc: anotherLogoUrl,
       );
       areEquals = haveSameSize(
-        firstImg: img1,
-        secondImg: img2,
+        firstImage: img1,
+        secondImage: img2,
       );
       expect(areEquals, isFalse);
     });

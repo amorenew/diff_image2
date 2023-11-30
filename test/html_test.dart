@@ -86,7 +86,7 @@ void main() {
       expect(
         () async {
           await DiffImage.saveImage(
-            image: diff.diffImg,
+            image: diff.diffImage,
             name: 'imageName',
             directory: '',
           );
@@ -96,16 +96,16 @@ void main() {
     });
 
     test('Compare Image Files', () async {
-      var firstImg = await getImg(
+      var firstImage = await getImg(
         imgSrc: flutterLogoUrl,
       );
-      var secondImg = await getImg(
+      var secondImage = await getImg(
         imgSrc: androidLogoUrl,
       );
 
       var diff = await DiffImage.compareFromMemory(
-        firstImg,
-        secondImg,
+        firstImage,
+        secondImage,
       );
       expect(diff.diffValue, 34.83905183744361);
     });

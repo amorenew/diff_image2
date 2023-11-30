@@ -52,9 +52,15 @@ void main() async {
       secondImageFromMemory!,
     );
     print('The difference between images is: ${diff.diffValue} percent');
-    print(diff.diffImg);
-    // Uncomment and run this ONLY if you are not on Dart Web (saveDiffImg
-    // is not supported on Dart Web yet). [saveDiffImg] allows you to save
+    print(diff.diffImage);
+
+    final screenshotFile = File('screenshot.png');
+    final goldenFile = File('golden.png');
+    diff = await DiffImage.compareFromFile(screenshotFile, goldenFile);
+    await DiffImage.saveImage(image: diff.diffImage, name: 'result.png');
+    print('image files diff: ${diff.diffValue}%');
+    // Uncomment and run this ONLY if you are not on Dart Web (saveImage
+    // is not supported on Dart Web yet). [saveImage] allows you to save
     // a png showing the differences between the two images.
 
     /*
@@ -64,8 +70,8 @@ void main() async {
       ignoreAlpha: false,
     );
     print('The difference between images is: ${diff.diffValue} percent');
-    await DiffImage.saveDiffImg(
-      diffImg: diff.diffImg,
+    await DiffImage.saveImage(
+      diffImg: diff.diffImage,
     );
     */
   } catch (e) {

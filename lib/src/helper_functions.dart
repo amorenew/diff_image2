@@ -23,13 +23,13 @@ Future<Image> getImg({required Uri imgSrc}) async {
   return img;
 }
 
-/// Check if [firstImg] and [secondImg] have the same width and height.
+/// Check if [firstImage] and [secondImage] have the same width and height.
 bool haveSameSize({
-  required Image firstImg,
-  required Image secondImg,
+  required Image firstImage,
+  required Image secondImage,
 }) {
-  return firstImg.width == secondImg.width &&
-      firstImg.height == secondImg.height;
+  return firstImage.width == secondImage.width &&
+      firstImage.height == secondImage.height;
 }
 
 /// Returns a red color if and only if two RGB pixels are different.
